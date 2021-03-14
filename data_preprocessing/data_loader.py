@@ -2,20 +2,21 @@ import os
 import pickle
 import time
 import glob
-import argparse
-import configs.data_config as data_cfg
-import nibabel as nib
-import numpy as np
 import logging
+import argparse
+import numpy as np
+import nibabel as nib
 import torch
 import torch.multiprocessing as mp
-import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
-from torch.utils.data import DataLoader
-from torchvision import transforms
-from skimage import transform
+import matplotlib.image as mpimg
+import configs.data_config as data_cfg
+
 from PIL import Image
 from os import listdir
+from skimage import transform
+from torchvision import transforms
+from torch.utils.data import DataLoader
 from scipy.ndimage import shift
 from sklearn import preprocessing
 from sklearn.model_selection import train_test_split

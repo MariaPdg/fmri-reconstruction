@@ -198,7 +198,7 @@ if __name__ == "__main__":
     equilibrium = args.equilibrium
     lambda_mse = args.lambda_mse
 
-    # An optimizer for each of the sub-networks, so we can selectively backprop
+    # An optimizer for each of the sub-networks
     optimizer_encoder = torch.optim.RMSprop(params=model.encoder.parameters(), lr=args.learning_rate, alpha=0.9,
                                             eps=1e-8, weight_decay=0, momentum=0, centered=False)
     lr_encoder = ExponentialLR(optimizer_encoder, gamma=args.decay_lr)

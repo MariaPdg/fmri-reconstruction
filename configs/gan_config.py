@@ -1,7 +1,7 @@
 
-pretrained_gan = None # 'gan_20210203-173210' # 'gan_20210127-012348'
+pretrained_gan = None  # 'gan_20210203-173210' # 'gan_20210127-012348'
 load_epoch = 25
-evaluate = False
+evaluate = False  # if only evaluate
 
 patience = 0   # for early stopping, 0 = deactivate early stopping
 

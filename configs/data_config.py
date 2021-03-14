@@ -24,7 +24,7 @@ save_training_results = 'results/'
 
 """_________________________________other data parameters____________________________________"""
 
-image_size = 224
+image_size = 64
 
 subjects = ['CSI1', 'CSI2', 'CSI3', 'CSI4']
 
