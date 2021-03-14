@@ -2,11 +2,6 @@
 """_________________________________data_loader.py_________________________________________"""
 data_root = 'datasets/'
 
-# path to external images used for decoder unsupervised training
-test_coco = 'coco_2017/images/test2017/'
-train_coco = 'coco_2017/images/train2017/'
-valid_coco = 'coco_2017/images/val2017/'
-
 coco_train_data = 'coco/coco_train2017/train2017'
 coco_valid_data = 'coco/coco_valid2017/val2017'
 coco_test_data = 'coco/coco_test2017/test2017'
@@ -23,6 +18,7 @@ valid_stimuli_split = 'BOLD5000/bold_roi/stimuli_valid.pickle'
 
 # roi data created with the function 'extract_roi'
 bold_roi_data = 'BOLD5000/bold_roi/'
+# path for results
 save_training_results = 'results/'
 
 
