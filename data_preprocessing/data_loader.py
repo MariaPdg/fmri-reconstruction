@@ -1,7 +1,7 @@
 import os
-import pickle
 import time
 import glob
+import pickle
 import logging
 import argparse
 import numpy as np
@@ -253,7 +253,7 @@ class BoldRoiDataloader(object):
 def concatenate_bold_data(data_dir):
     """
     Concatenates subject data in the whole dataset and normalizes them on the fly
-    (stored with roi_extraction.py script)
+    (standardize with mean and variance per subject)
 
     :param data_dir: path to data saved per subjects, directory must look like:
         data_dir/CSI1/CSI1_roi_pad.pickle
@@ -276,13 +276,8 @@ def concatenate_bold_data(data_dir):
     for sub in subjects:
         with open(data_dir + sub + '/' + sub +'_roi_pad.pickle', "rb") as input_file:
             fmri = pickle.load(input_file)
-            # norm_fmri = preprocessing.scale(np.abs(fmri)) * np.sign(fmri)
             norm_fmri = preprocessing.scale(fmri)
-            # norm_fmri = softmax_normalization(fmri)
             all_fmri.append(norm_fmri)
-            # all_fmri.append(fmri / np.max(np.abs(fmri)))  # normalization
-            # all_fmri.append(linear_normalization(fmri))
-            # all_fmri.append(fmri)  # without norm
             activation_len.append(fmri.shape[1])
         with open(data_dir + sub + '/' + sub + '_stimuli_paths.pickle',
                   "rb") as input_file:
@@ -306,7 +301,6 @@ def softmax_normalization(x, lam=2):
 
 def linear_normalization(x):
 
-    # return (x - np.min(x)) / (np.max(x) - np.min(x))
     return 2 * (x - np.min(x)) / (np.max(x) - np.min(x)) - 1
 
 
@@ -507,7 +501,6 @@ if __name__ == "__main__":
                                                                         ]))
     ext_images_dataloader = DataLoader(external_images, batch_size=16, shuffle=True, num_workers=4)
 
-    # prepare_external_data(EXT_DATA_PATH, 'coco_data_valid.pickle', save=False)
 
     for i_batch, sample_batched in enumerate(valid_dataloader):
         print(i_batch, sample_batched['image'].size(),

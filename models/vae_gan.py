@@ -1,10 +1,11 @@
 import torch
 import numpy
-import torch.nn.functional as F
 import torch.nn as nn
-from torch.autograd import Variable
+import torch.nn.functional as F
 import torchvision.models as models
 import configs.models_config as config
+
+from torch.autograd import Variable
 
 # encoder block (used in encoder and discriminator)
 
@@ -399,8 +400,6 @@ class VaeGanCognitive(nn.Module):
 
         # reconstruction error, not used for the loss but useful to evaluate quality
         nle = 0.5 * (gt_x.view(len(gt_x), -1) - x_tilde.view(len(x_tilde), -1)) ** 2
-        # mse_loss = nn.MSELoss()
-        # nle = mse_loss(gt_x, x_tilde)
 
         # kl-divergence
         kld_weight = 1

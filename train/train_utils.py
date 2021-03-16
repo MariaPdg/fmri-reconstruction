@@ -2,12 +2,10 @@ import os
 import math
 import torch
 import random
-import logging
 import torch.nn.functional as F
 import torchvision.models as models
 import matplotlib.pyplot as plt
 
-from tqdm import tqdm
 from torch import nn, no_grad
 from torch.autograd import Variable
 from torchvision.utils import make_grid, save_image
