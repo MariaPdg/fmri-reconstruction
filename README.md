@@ -1,9 +1,9 @@
 # fmri-reconstruction
-## Image reconstruction from human brain activity by variational autoencoder and adversarial learning
+## Image reconstruction from human brain activity
 
-This is a part of the project for my Master thesis at the University of Stuttgart.
+This is a part of the project in image reconstruction from human brain activity.
 
-The motivation of the thesis is to overcome the domain adaptation challenge of visual and fMRI data by analysing and 
+The motivation of the project is to overcome the domain adaptation challenge of visual and fMRI data by analysing and 
 combining recent successful approaches in the field of reconstruction based on VAEs and GANs. 
 
 
